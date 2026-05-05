@@ -23,3 +23,17 @@ management:
 
 server:
   port: 8070
+
+logging:
+  file:
+    name: ${LOG_FILE_NAME:logs/eureka-server.log}
+  structured:
+    format:
+      console: ecs
+      file: ecs
+    ecs:
+      service:
+        name: ${spring.application.name}
+        environment: ${SPRING_PROFILES_ACTIVE:local}
+  level:
+    root: INFO
